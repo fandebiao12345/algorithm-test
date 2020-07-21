@@ -1,3 +1,10 @@
+/*
+ * @Description: file content
+ * @Author: 卢大鹏
+ * @Date: 2020-07-11 14:28:06
+ * @LastEditors: 卢大鹏
+ * @LastEditTime: 2020-07-14 11:26:18
+ */ 
 
 
 
@@ -16,8 +23,7 @@ function mergeSort(arr) {
 }
 
 function merge(left, right) {
-    console.log('left' + left)
-    console.log('right' + right)
+ 
     let temp = []
     while(left.length && right.length){
         if(left[0] <= right[0]){

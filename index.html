@@ -3,35 +3,30 @@
  * @Author: 卢大鹏
  * @Date: 2020-07-10 10:59:57
  * @LastEditors: 卢大鹏
- * @LastEditTime: 2020-07-10 11:11:21
--->
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
+ * @LastEditTime: 2020-07-21 16:52:31
+--> 
 <body>
-    <script>
-  
-        let a = {
-            i: 0,
-            toString () {
-                return ++this.i
+    <div id="id">
+        divqqqq
+    </div>
+    <script>  
+    
+    window.onload = function(){
+        setTimeout(()=>{
+            document.querySelector('#id').innerHTML='red';
+            Promise.resolve().then(()=>{
+                var now =Date.now();
+                while(Date.now()-now<4000){
+                }
+                console.log("微任务执行完成")
+            })
+            var now =Date.now();
+            while(Date.now()-now<4000){
             }
-        }
+            console.log("宏任务执行完成")
 
+        },1000)
+    }
 
-        if (a == 1 && a == 2 && a == 3) {
-
-            console.log('yay');
-
-        }    
     </script>
 </body>
-
-</html>
