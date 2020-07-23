@@ -3,57 +3,36 @@
  * @Author: 卢大鹏
  * @Date: 2020-07-11 14:28:06
  * @LastEditors: 卢大鹏
- * @LastEditTime: 2020-07-14 11:26:18
+ * @LastEditTime: 2020-07-23 16:30:37
  */ 
-
-
-
-
 function mergeSort(arr) {
     if(arr.length < 2){
         return arr
     }
     let middle = Math.floor(arr.length / 2)
-
-    let left = arr.slice(0, middle)
-    let right = arr.slice(middle)
-
-    return merge(mergeSort(left), mergeSort(right))
-
+    let leftArr = arr.slice(0, middle)
+    let rightArr = arr.slice(middle)
+    return merge(mergeSort(leftArr), mergeSort(rightArr))
 }
 
-function merge(left, right) {
- 
+function merge(arr1, arr2){
     let temp = []
-    while(left.length && right.length){
-        if(left[0] <= right[0]){
-            
-            temp.push(left.shift())
+    while(arr1.length && arr2.length){
+        if(arr1[0] <= arr2[0]){
+            temp.push(arr1.shift())
         }else{
-            temp.push(right.shift())
+            temp.push(arr2.shift())
         }
-        
     }
-    if(left.length){
-        temp = temp.concat(left)
+    if(arr1.length){
+        temp.push(...arr1)
     }
-    if(right.length){
-  
-        temp = temp.concat(right)
+    if(arr2.length){
+        temp.push(...arr2)
     }
-
-
     return temp
-
 }
 
 
 
-
-let re = /(ab)(c)/g
-let str = 'abcdsdabc'
-
-
-let result = str.replace(re, '$2$1')
-
-console.log(result)
+console.log(mergeSort([4,1,42,4,1,45,0,1,4]))
